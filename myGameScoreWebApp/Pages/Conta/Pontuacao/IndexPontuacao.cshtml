@@ -1,0 +1,33 @@
+﻿@page
+@model myGameScoreWebApp.Pages.Conta.Pontuacao.IndexPontuacaoModel
+@{
+}
+<br>
+<h2> Pontuação </h2>
+<a class='btn btn-primary btn-sm' href=''>Novo Jogador </a>
+<input type = "hidden" name="id_user_login" value=" = 1">
+<table class="table">
+    <thead>
+        <tr>
+            <th>id_user</th>
+            <th>nome_user</th>
+            <th>email_user</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listJogadores)
+        {
+            <tr>
+                <td>@item.id_user</td>
+                <td>@item.nome_user</td>
+                <td>@item.email_user</td>
+                <td>
+                    <a class="btn btn-primary btn-dm " href="/Jogadores/Edit?id_user=@item.id_user">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-dm " href="/Jogadores/Delete?id_user=@item.id_user">Deletar</a>
+                </td>
+            </tr> 
+        }
+    </tbody>
+</table>

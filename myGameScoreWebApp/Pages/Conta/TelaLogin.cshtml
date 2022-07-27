@@ -1,0 +1,54 @@
+﻿@page
+@model myGameScoreWebApp.Pages.Conta.TelaLoginModel
+@{
+}
+<br>
+
+<h2> Entrar no MyGameScore </h2>
+
+@if (Model.errorMsg.Length>0)
+{
+   <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+       <strong>@Model.errorMsg</strong>
+       <button type='button' class='btn-close' data-bs-dismiss='alert' aria-lavel='Close'></button>
+
+
+   </div> 
+}
+
+<form method= "post">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nome do Jogador</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="nome_user" value="@Model.jogadorinfo.nome_user" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email do Jogador</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email_user" value="@Model.jogadorinfo.email_user" />
+        </div>
+    </div>
+
+   
+
+
+
+    <div class="row md-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn-primary">Entrar</button>
+        </div>
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <a class="btn-outline-primary" href="/" role="button">Voltar</a>
+        </div>
+    </div>
+    <br>
+    <div class="row md-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+          <p> Caso não tenha uma conta <a class="btn-outline-primary" href="/Conta/Registrar" role="button">Registrar</a></p>
+         </div>
+   </div>  
+
+
+</form>

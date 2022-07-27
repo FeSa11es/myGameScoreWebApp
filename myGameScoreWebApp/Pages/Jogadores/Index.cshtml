@@ -1,0 +1,34 @@
+﻿@page
+@model myGameScoreWebApp.Pages.Jogadores.IndexModel
+@{
+}
+
+<br>
+<h2> Lista de Jogadores </h2>
+<a class='btn btn-primary btn-sm' href='/Jogadores/Create'>Novo Jogador</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>id_user</th>
+            <th>nome_user</th>
+            <th>email_user</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listJogadores)
+        {
+            <tr>
+                <td>@item.id_user</td>
+                <td>@item.nome_user</td>
+                <td>@item.email_user</td>
+                <td>
+                    <a class="btn btn-primary btn-dm " href="/Jogadores/Edit?id_user=@item.id_user">Editar</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-dm " href="/Jogadores/Delete?id_user=@item.id_user">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

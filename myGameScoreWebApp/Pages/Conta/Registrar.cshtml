@@ -1,0 +1,63 @@
+﻿@page
+@model myGameScoreWebApp.Pages.Conta.RegistrarModel
+@{
+}
+<br>
+
+<h2> Registrar no MyGameScore </h2>
+
+@if (Model.errorMsg.Length>0)
+{
+   <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+       <strong>@Model.errorMsg</strong>
+       <button type='button' class='btn-close' data-bs-dismiss='alert' aria-lavel='Close'></button>
+   </div> 
+}
+
+<form method= "POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nome</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="nome_user" value="@Model.jogadorinfo.nome_user" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="email_user" value="@Model.jogadorinfo.email_user" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Time (Opcional)</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="time_user" value="@Model.jogadorinfo.time_user" />
+        </div>
+    </div>
+
+    @if (Model.successMsg.Length>0)
+{
+   <div class='alert alert-warning alert-dismissible fade show' role='alert' >   <a href="/Conta/Perfil"></a>
+       <strong>@Model.successMsg</strong>
+       <button type='button' class='btn-close' data-bs-dismiss='alert' aria-lavel='Close'></button>
+       <a class="btn-outline-primary" href="/Conta/Perfil" role="button">Ir ao Perfil</a>
+   </div> 
+      
+}
+
+
+    <div class="row md-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn-primary">Registrar</button>
+        </div>
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <a class="btn-outline-primary" href="/" role="button">Voltar</a>
+        </div>
+    </div>
+    <div class="row md-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+          <p>  Já tem uma conta ? <a class="btn-outline-primary" href="/Conta/TelaLogin" role="button">Entrar</a></p>
+        </div>
+   </div>     
+
+</form>
